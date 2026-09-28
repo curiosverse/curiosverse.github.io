@@ -1,0 +1,948 @@
+<title>Curiosverse</title>
+
+<!--
+╔══════════════════════════════════════════════════════════════╗
+  Curiosverse サイト　編集ガイド
+╚══════════════════════════════════════════════════════════════╝
+  ■ 作品・ニュース・連絡先など、よく変える中身は、すぐ下の
+    「✏️ 編集エリア」だけを書き換えればOKです。
+  ■ About・Lab・ガイドライン・依頼内容の文章は、このファイルの下の方にある
+    「✏️」の印がついた場所を、文字だけ書き換えてください。
+  ■ 書き換えたら保存して、ブラウザで開き直すと反映されます。
+
+  【書くときのルール】
+    ・文字は "ダブルクォート" で囲む
+    ・項目と項目の間には , （カンマ）を忘れずに
+    ・もしページが真っ白・作品が出ない → カンマか " の閉じ忘れを確認！
+      （ページの一番上に赤い注意が出ます）
+-->
+<script>
+window.CV = {
+
+  /* ─────────────── ✏️ サイト全体の情報 ─────────────── */
+  site: {
+    preview: true,                        // サンプル表示の帯を消すときは false に
+    creator: "（クリエイター名）",
+    since:   "2026年",
+    tools:   "DAW、動画編集ソフト、デザインツール（使用ソフト名が入ります）",
+    basedIn: "日本",
+    email:   "hello@curiosverse.example",
+    updated: "2026.09.28",               // フッターの最終更新日
+    socials: [                            // url を "" にすると「準備中」扱いで表示
+      { label: "YouTube",   url: "" },
+      { label: "X",         url: "" },
+      { label: "Instagram", url: "" },
+      { label: "音楽配信",   url: "" }
+    ]
+  },
+
+  /* ─────────────── ✏️ 特集プロジェクト（作品一覧の上の大きい枠） ─────────────── */
+  feature: {
+    tag:   "Project No.01 ／ 2026",
+    title: "軌道上のラジオ",
+    text:  "地上に届かなくなったラジオ番組を、ひとりで放送し続ける人工衛星の話。ひとつの物語を、楽曲・ミュージックビデオ・ジャケットの3つの形で作りました。",
+    works: ["CV-MU-001", "CV-MV-001", "CV-GR-001"],   // 並べたい作品の番号
+    image: ""                                          // 画像を使うなら "images/feature.jpg" など
+  },
+
+  /* ─────────────── ✏️ 作品リスト ───────────────
+     1作品 = { ... } のかたまり1つ。増やすときは、かたまりを丸ごとコピーして貼り付け！
+
+     id      … 標本番号。ジャンルごとに CV-MU（音楽）/ CV-NV（小説）/ CV-MV（映像）
+               / CV-GR（グラフィック）/ CV-YT（YouTube）＋ 通し番号
+     g       … ジャンル："music" / "novel" / "video" / "graphic" / "youtube" のどれか
+     title   … タイトル        en … 英語の副題
+     sub     … カードの下に出る一言（形態・年など）
+     badge   … カード右上の小さい表示（尺など）
+     desc    … 説明文
+     spec    … 詳細の表。[ "項目", "内容" ] を好きなだけ
+     rel     … つながっている作品の番号（なければ [] ）
+     image   … 画像のパス。"" のままなら自動で宇宙っぽい絵が出ます
+     links   … ボタン。{ label: "表示名", url: "https://..." }。なければ [] で「準備中」
+     motif   … （音楽のみ）試聴サンプルのメロディ。本物の音源に差し替えるときは相談してね
+     excerpt … （小説のみ）試し読み。1つ目がタイトル、あとは1段落ずつ
+  */
+  works: [
+    { id:"CV-MU-001", g:"music", title:"軌道上のラジオ", en:"Radio on Orbit", sub:"Single ・ 2026", badge:"3:42",
+      desc:"誰にも届かなくなった周波数で、今夜も放送を続ける人工衛星の歌。ローファイなシンセと、ノイズ混じりのボーカルで組み立てました。",
+      spec:[["形態","デジタルシングル"],["リリース","2026.09.12"],["作詞・作曲・編曲","Curiosverse"],["尺","3:42"]],
+      rel:["CV-MV-001","CV-GR-001"], image:"", links:[], motif:[0,4,7,11,9,7,4,2] },
+
+    { id:"CV-MU-002", g:"music", title:"Wunderkammer", en:"Cabinet of Curiosities", sub:"Instrumental ・ 2026", badge:"4:15",
+      desc:"「驚異の部屋」と呼ばれた昔の博物陳列室をテーマにしたインスト曲。オルゴールと弦のピチカートで、棚をひとつずつ開けていくような構成です。",
+      spec:[["形態","インストゥルメンタル"],["リリース","2026.07.03"],["作曲・編曲","Curiosverse"],["尺","4:15"]],
+      rel:["CV-GR-003"], image:"", links:[], motif:[0,3,7,12,10,7,3,5] },
+
+    { id:"CV-MU-003", g:"music", title:"午前二時のプラネタリウム", en:"Planetarium at 2 a.m.", sub:"EP 4曲 ・ 2025", badge:"EP",
+      desc:"眠れない夜のための4曲入りEP。閉館後のプラネタリウムに忍び込む一晩を、曲順どおりに追いかけられます。",
+      spec:[["形態","EP（4曲）"],["リリース","2025.12.20"],["作詞・作曲・編曲","Curiosverse"],["総尺","16:08"]],
+      rel:["CV-YT-001"], image:"", links:[], motif:[0,7,4,9,7,12,11,7] },
+
+    { id:"CV-NV-001", g:"novel", title:"星を拾う郵便局", en:"The Star-Collecting Post Office", sub:"短編 ・ 約12,000字", badge:"完結",
+      desc:"夜のあいだに落ちてきた星を、宛先へ届ける郵便局の話。ひとりきりの局員と、欠けた星を持ってきた女の子の一晩を描きました。",
+      spec:[["分類","短編小説"],["文字数","約12,000字"],["公開","2026.06.21"],["状態","完結"]],
+      rel:["CV-YT-002"], image:"", links:[],
+      excerpt:["星を拾う郵便局",
+        "その郵便局は、町でいちばん高い丘の上にあった。",
+        "窓口に並ぶのは手紙ではなく、夜のあいだに落ちてきた星だ。拾った人は小さな紙袋に星を入れ、宛名の欄に「いつか見上げる誰か」と書いて差し出す。",
+        "局員は私ひとりしかいない。",
+        "消印を押すと、星はかすかに鳴る。鈴よりも低く、ため息よりも明るい音で。その音を聞くたびに、私はこの仕事を続けていてよかったと思う。",
+        "今夜、窓口に来たのは、ランドセルを背負った女の子だった。",
+        "「これ、届きますか」",
+        "差し出された紙袋の中で、欠けた星がひとつ、心細そうに光っていた。"] },
+
+    { id:"CV-NV-002", g:"novel", title:"標本箱の中の夏", en:"Summer in a Specimen Box", sub:"連載 ・ 第3話まで公開", badge:"連載中",
+      desc:"亡くなった祖父の書斎で見つかったのは、夏そのものの標本だった。十五歳の「私」が、祖父の十五歳の夏をたどる連載小説です。",
+      spec:[["分類","連載小説"],["公開話数","第3話まで"],["更新","月1回"],["状態","連載中"]],
+      rel:["CV-GR-003"], image:"", links:[],
+      excerpt:["標本箱の中の夏",
+        "祖父の書斎には、夏が標本にされて並んでいた。",
+        "ガラスの箱の中で、入道雲はピンで留められ、蝉の声は小瓶に詰められ、夕立の匂いには細い字でラベルが貼られている。",
+        "「一九八七年　八月　十四日」",
+        "私はその日付を声に出して読んだ。祖父がまだ、私と同じ十五歳だった年の夏だ。"] },
+
+    { id:"CV-MV-001", g:"video", title:"軌道上のラジオ", en:"Music Video", sub:"Music Video ・ 2026", badge:"3:42",
+      desc:"楽曲「軌道上のラジオ」のミュージックビデオ。ドット絵風の衛星と実写の夜空を重ねて、放送が地上に届く一瞬を描きました。",
+      spec:[["分類","ミュージックビデオ"],["公開","2026.09.20"],["監督・編集","Curiosverse"],["尺","3:42"]],
+      rel:["CV-MU-001","CV-GR-001"], image:"", links:[] },
+
+    { id:"CV-MV-002", g:"video", title:"欠けた月の直し方", en:"How to Mend a Broken Moon", sub:"Short Film ・ 2026", badge:"7:30",
+      desc:"月の修理屋を営む老人と、弟子入りを志願した少年の短編映像。セリフを使わず、音と動きだけで物語を進めています。",
+      spec:[["分類","ショートフィルム"],["公開","2026.05.02"],["脚本・監督・音楽","Curiosverse"],["尺","7:30"]],
+      rel:["CV-NV-001"], image:"", links:[] },
+
+    { id:"CV-GR-001", g:"graphic", title:"「軌道上のラジオ」ジャケット", en:"Cover Artwork", sub:"Artwork ・ 2026", badge:"Cover",
+      desc:"シングル「軌道上のラジオ」のジャケット。電波の同心円と衛星の軌道を、3色の版を重ねたような質感で表現しました。",
+      spec:[["分類","ジャケットアートワーク"],["制作","2026.08"],["サイズ","3000 × 3000 px"],["担当","デザイン・イラスト"]],
+      rel:["CV-MU-001","CV-MV-001"], image:"", links:[] },
+
+    { id:"CV-GR-002", g:"graphic", title:"Curiosverse ロゴ・VI", en:"Visual Identity", sub:"Branding ・ 2026", badge:"VI",
+      desc:"Curiosverseのロゴとビジュアルアイデンティティ。「O」を惑星に見立て、そこから衛星がひとつ飛び出しているマークです。",
+      spec:[["分類","ロゴ・VI"],["制作","2026.04"],["内容","ロゴ、カラー、書体、使用ルール"],["担当","デザイン"]],
+      rel:[], image:"", links:[] },
+
+    { id:"CV-GR-003", g:"graphic", title:"好奇心博物館", en:"Museum of Curiosity", sub:"Poster ・ 2026", badge:"B2",
+      desc:"架空の博物館の企画展ポスター。標本ラベルの書式をそのままレイアウトに使い、展示品の一覧がそのまま絵になるように組みました。",
+      spec:[["分類","ポスター"],["制作","2026.06"],["サイズ","B2（515 × 728 mm）"],["担当","デザイン"]],
+      rel:["CV-MU-002","CV-NV-002"], image:"", links:[] },
+
+    { id:"CV-YT-001", g:"youtube", title:"作曲の裏側 #1 ジャケットから曲を作る", en:"Behind the Track", sub:"YouTube ・ 18:24", badge:"18:24",
+      desc:"先にジャケットを描いてから、その絵に合う曲を作るという実験の記録。コード進行を決める過程をそのまま見せています。",
+      spec:[["シリーズ","作曲の裏側"],["公開","2026.08.09"],["尺","18:24"],["内容","制作過程・解説"]],
+      rel:["CV-MU-003"], image:"", links:[] },
+
+    { id:"CV-YT-002", g:"youtube", title:"小説を1日で書き上げる 執筆ルーティン", en:"One-Day Novel", sub:"YouTube ・ 12:05", badge:"12:05",
+      desc:"朝から夜までの1日で、短編小説を1本書き上げるまでのドキュメント。プロットの立て方と、詰まったときの抜け出し方も紹介しています。",
+      spec:[["シリーズ","やってみた"],["公開","2026.07.18"],["尺","12:05"],["内容","ドキュメント"]],
+      rel:["CV-NV-001"], image:"", links:[] }
+  ],
+
+  /* ─────────────── ✏️ 更新履歴（新しいものを上に） ───────────────
+     [ "日付", "表示ラベル", "本文", "色（music/novel/video/graphic/youtube）" ] */
+  news: [
+    ["2026.09.28", "サイト",  "Curiosverseの公式サイトを公開しました。",           "youtube"],
+    ["2026.09.20", "映像",    "「軌道上のラジオ」のミュージックビデオを公開しました。", "video"],
+    ["2026.09.12", "音楽",    "シングル「軌道上のラジオ」を配信リリースしました。",    "music"],
+    ["2026.08.30", "小説",    "「標本箱の中の夏」第3話を公開しました。",              "novel"],
+    ["2026.08.09", "YouTube", "「作曲の裏側 #1」を公開しました。",                   "youtube"]
+  ]
+};
+</script>
+<!-- ✏️ 編集エリアここまで ───────────────────────────────────────── -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#F3F2F8; --surface:#FFFFFF; --surface-2:#E9E7F3; --ink:#17152E; --ink-2:#56537B; --line:#D7D4E7;
+  --accent:#3A2FE0; --accent-ink:#FFFFFF; --brass:#8E620F;
+  --night:#0D0C1E; --night-2:#16152E; --night-ink:#EEEDFA; --night-dim:#A9A6CC;
+  --ok:#1F8A5B; --ok-bg:#DDF2E7; --warn:#9A6400; --warn-bg:#F7EACB; --ng:#C23A3A; --ng-bg:#F7DEDE;
+  --g-music:#E0673F; --g-novel:#2E9A7A; --g-video:#D6A21E; --g-graphic:#D0457F; --g-youtube:#5B50F0;
+  --f-display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0F0E1F; --surface:#18172F; --surface-2:#221F3D; --ink:#ECEBF8; --ink-2:#A7A4C9; --line:#2F2C4D;
+    --accent:#8F88FF; --accent-ink:#0F0E1F; --brass:#D9A84A;
+    --ok:#5CCB94; --ok-bg:#15372A; --warn:#E5B54E; --warn-bg:#3A2E12; --ng:#F07C7C; --ng-bg:#3D1C22;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F0E1F; --surface:#18172F; --surface-2:#221F3D; --ink:#ECEBF8; --ink-2:#A7A4C9; --line:#2F2C4D;
+  --accent:#8F88FF; --accent-ink:#0F0E1F; --brass:#D9A84A;
+  --ok:#5CCB94; --ok-bg:#15372A; --warn:#E5B54E; --warn-bg:#3A2E12; --ng:#F07C7C; --ng-bg:#3D1C22;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
+.mono{font-family:var(--f-mono);letter-spacing:.04em}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+
+/* preview banner */
+.preview{background:var(--surface-2);color:var(--ink-2);font-size:12.5px;text-align:center;padding:6px 16px;line-height:1.5}
+.preview b{color:var(--ink);font-weight:700}
+
+/* header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.brand span{font-family:var(--f-display);font-size:17px;letter-spacing:.01em}
+.brand svg{width:26px;height:26px}
+nav.main{margin-left:auto;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+nav.main a{display:block;text-decoration:none;font-size:13.5px;font-weight:500;padding:6px 12px;border-radius:999px;color:var(--ink-2);white-space:nowrap}
+nav.main a:hover{color:var(--ink);background:var(--surface-2)}
+nav.main a[aria-current]{color:var(--bg);background:var(--ink)}
+
+/* hero */
+.hero{background:var(--night);color:var(--night-ink);position:relative;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:center;padding-block:80px 72px}
+.mark{width:100%;max-width:300px;justify-self:center;aspect-ratio:1}
+.mark svg{width:100%;height:100%;overflow:visible}
+.mark .sat{transform-origin:150px 150px;animation:sat 14s linear infinite}
+@keyframes sat{to{transform:rotate(360deg)}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--night-dim)}
+.hero h1{font-family:var(--f-display);font-weight:400;font-size:clamp(44px,7.6vw,92px);line-height:1;letter-spacing:-.01em;margin-top:18px}
+.hero h1 .o{display:inline-block;width:.78em;height:.78em;border-radius:50%;border:.1em solid currentColor;position:relative;vertical-align:-.04em;margin-inline:.01em}
+.hero h1 .o::after{content:"";position:absolute;width:.22em;height:.22em;border-radius:50%;background:var(--g-music);top:-.17em;right:-.08em}
+.hero .lede{margin-top:26px;font-size:clamp(16px,1.9vw,19px);line-height:1.9;max-width:30em;color:var(--night-ink)}
+.hero .lede small{display:block;margin-top:8px;font-size:13.5px;color:var(--night-dim)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;font-size:14px;padding:11px 20px;border-radius:999px;border:1px solid transparent;text-decoration:none;cursor:pointer;line-height:1.2}
+.btn.primary{background:#EEEDFA;color:#0D0C1E}
+.btn.primary:hover{background:#FFFFFF}
+.btn.ghost{border-color:#3B3860;color:var(--night-ink);background:transparent}
+.btn.ghost:hover{border-color:var(--night-dim)}
+.orbit{width:100%;max-width:560px;justify-self:center;aspect-ratio:1;margin-top:8px}
+.orbit .ring.faint{stroke:#3B3860}
+.orbit .halo{opacity:.16;transition:opacity .2s ease}
+.orbit .node:hover .halo,.orbit .node:focus-visible .halo{opacity:.32}
+.orbit .core{cursor:pointer}
+.orbit .core text{font-family:var(--f-mono);font-size:10px;fill:#A9A6CC;letter-spacing:.14em}
+.orbit .core:hover circle:nth-child(2){stroke:#FFFFFF}
+.orbit .node.lab text{fill:#A9A6CC}
+.orbit a:focus{outline:none}
+.orbit a:focus-visible text{text-decoration:underline}
+.orbit svg{width:100%;height:100%;overflow:visible}
+.orbit .ring{fill:none;stroke:#2E2B55;stroke-width:1}
+.orbit .node{cursor:pointer}
+.orbit .node circle.hit{fill:transparent}
+.orbit .node text{font-family:var(--f-body);font-weight:700;font-size:13px;fill:#EEEDFA}
+.orbit .node text.en{font-family:var(--f-mono);font-weight:400;font-size:9.5px;fill:#A9A6CC;letter-spacing:.12em}
+@media (max-width:520px){.orbit .node text{font-size:16px}.orbit .node text.en{font-size:11px}.orbit .core text{font-size:12px}}
+.orbit .node circle.dot{transition:transform .2s ease;transform-box:fill-box;transform-origin:center}
+.orbit .node:hover circle.dot,.orbit .node:focus-visible circle.dot{transform:scale(1.25)}
+
+/* sections */
+.page{padding-block:56px 0}
+.view.enter{animation:enter .35s ease both}
+.view.warp{animation:warp .55s cubic-bezier(.2,.7,.2,1) both}
+@keyframes enter{from{opacity:.001;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes warp{from{opacity:.001;transform:scale(1.08);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+.crumb{font-family:var(--f-mono);font-size:12px;color:var(--brass);letter-spacing:.12em;text-transform:uppercase;margin:0}
+.sec-head{display:grid;gap:8px;margin-bottom:36px}
+.sec-head h1{font-family:var(--f-display);font-weight:400;font-size:clamp(30px,4.4vw,44px);line-height:1.2}
+.map,.room-head{background:var(--night);color:var(--night-ink);position:relative;overflow:hidden}
+.map canvas,.room-head canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.map .wrap{position:relative;padding-block:44px 40px;display:grid;justify-items:center;text-align:center;gap:6px}
+.map h1{font-family:var(--f-display);font-weight:400;font-size:clamp(30px,4.6vw,46px);line-height:1.2}
+.map .hint{color:var(--night-dim);font-size:14px}
+.room-head .wrap{position:relative;padding-block:28px 28px;display:grid;gap:18px}
+.back{color:var(--night-dim);text-decoration:none;font-size:13.5px;justify-self:start}
+.back:hover{color:var(--night-ink)}
+.room-title{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.room-title h1{font-family:var(--f-display);font-weight:400;font-size:clamp(32px,5vw,52px);line-height:1.1}
+.room-title .eyebrow{margin-bottom:4px}
+.planet{--gc:#E0673F;width:64px;height:64px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 34% 30%,rgba(255,255,255,.55) 0,var(--gc) 38%,rgba(13,12,30,.9) 100%);box-shadow:0 0 40px -6px var(--gc)}
+.room-title .count{margin-left:auto;color:var(--night-dim);font-size:13px}
+.room-nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.room-nav::-webkit-scrollbar{display:none}
+.room-nav a{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:500;padding:6px 13px;border-radius:999px;border:1px solid #3B3860;color:var(--night-dim)}
+.room-nav a:hover{color:var(--night-ink);border-color:var(--night-dim)}
+.room-nav a[aria-current]{background:#EEEDFA;color:#0D0C1E;border-color:#EEEDFA}
+.empty{color:var(--ink-2)}
+.home-body{display:grid;gap:56px}
+.row-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.row-head h2{font-size:18px;font-weight:700}
+.more{font-size:13.5px;color:var(--accent);text-decoration:none;font-weight:700}
+.more:hover{text-decoration:underline}
+.sec-head p{color:var(--ink-2);max-width:40em}
+
+/* feature project */
+.feature{display:grid;grid-template-columns:1fr 1.25fr;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.feature .art{min-height:280px;position:relative;background:var(--night)}
+.feature .art canvas{position:absolute;inset:0;width:100%;height:100%}
+.feature .body{padding:32px;display:flex;flex-direction:column;gap:14px}
+.feature .tag{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;color:var(--brass);text-transform:uppercase}
+.feature h2{font-family:var(--f-display);font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25}
+.feature p{color:var(--ink-2)}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:auto;padding-top:8px}
+.chain button{font:inherit;font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.chain button:hover{border-color:var(--ink-2)}
+.chain .arrow{color:var(--ink-2);font-size:13px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{font:inherit;font-size:13.5px;font-weight:500;display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip .n{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-2)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip[aria-pressed="true"] .n{color:inherit;opacity:.7}
+
+/* work grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{display:flex;flex-direction:column;gap:12px;text-align:left;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer}
+.card .frame{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--surface-2);max-width:100%;transition:transform .25s ease}
+.card:hover .frame{transform:translateY(-3px)}
+.cv-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.card .frame canvas{position:absolute;inset:0;width:100%;height:100%}
+.card .meta{display:flex;flex-direction:column;gap:2px;padding-inline:2px}
+.card .cat{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;color:var(--brass);display:flex;align-items:center;gap:8px}
+.card h3{font-size:17px;font-weight:700;line-height:1.45}
+.card .sub{font-size:13px;color:var(--ink-2)}
+.play{position:absolute;left:12px;bottom:12px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(13,12,30,.78);color:#fff;display:grid;place-items:center;cursor:pointer;z-index:2}
+.play:hover{background:rgba(13,12,30,.95)}
+.play svg{width:16px;height:16px}
+.eq{position:absolute;left:64px;bottom:22px;display:flex;gap:3px;align-items:flex-end;height:22px;z-index:2}
+.eq i{width:3px;background:#fff;border-radius:2px;height:4px;opacity:.9}
+.playing .eq i{animation:eq .9s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}.eq i:nth-child(4){animation-delay:-.15s}
+@keyframes eq{0%,100%{height:4px}50%{height:20px}}
+.badge{position:absolute;right:10px;top:10px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;padding:3px 8px;border-radius:6px;background:rgba(13,12,30,.72);color:#fff;z-index:2}
+
+/* lab */
+.lab{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.slot{border:1.5px dashed var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:10px;min-height:170px}
+.slot .cat{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-2);letter-spacing:.1em}
+.slot h2{margin:0;font-size:17px}
+.slot p{font-size:14px;color:var(--ink-2)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+.about .statement{font-size:clamp(18px,2.2vw,22px);line-height:1.9;font-weight:500}
+.about .statement em{font-style:normal;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--accent) 28%,transparent) 62%)}
+.about .statement + p{margin-top:20px;color:var(--ink-2)}
+dl.spec{margin:0;display:grid;grid-template-columns:auto 1fr;border-top:1px solid var(--line)}
+dl.spec dt,dl.spec dd{padding:13px 0;border-bottom:1px solid var(--line);margin:0;font-size:14px}
+dl.spec dt{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;color:var(--ink-2);padding-right:24px;padding-top:15px;text-transform:uppercase}
+
+/* news */
+.news{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.news li{display:grid;grid-template-columns:120px 110px 1fr;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.news time{font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.news .k{font-size:12px;display:inline-flex;align-items:center;gap:6px;color:var(--ink-2)}
+
+/* guidelines */
+.rules{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.rule{display:grid;grid-template-columns:1fr auto;gap:6px 20px;padding:18px 22px;border-bottom:1px solid var(--line);align-items:center}
+.rule:last-child{border-bottom:0}
+.rule h2{margin:0;font-size:15.5px;font-weight:700}
+.rule p{font-size:13.5px;color:var(--ink-2);grid-column:1}
+.pill{grid-row:1 / span 2;grid-column:2;font-size:12.5px;font-weight:700;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.pill.ok{color:var(--ok);background:var(--ok-bg)}
+.pill.warn{color:var(--warn);background:var(--warn-bg)}
+.pill.ng{color:var(--ng);background:var(--ng-bg)}
+.credit{margin-top:24px;display:grid;gap:10px}
+.credit .label{font-size:13.5px;font-weight:700}
+.copyrow{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap}
+.copyrow code{flex:1 1 260px;font-family:var(--f-mono);font-size:13.5px;background:var(--surface-2);padding:11px 14px;border-radius:10px;overflow-x:auto;white-space:nowrap;user-select:all}
+.copybtn{font:inherit;font-size:13px;font-weight:700;padding:0 16px;min-height:42px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.copybtn:hover{border-color:var(--ink-2)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.svc .cat{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px}
+.svc p{font-size:13px;color:var(--ink-2);line-height:1.7}
+.mailbox{display:flex;flex-direction:column;gap:14px}
+.mailbox .addr{font-size:15px;word-break:break-all;white-space:normal}
+.mailbox ul{margin:0;padding-left:1.2em;color:var(--ink-2);font-size:13.5px;display:grid;gap:4px}
+.social{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.social a{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--ink-2);color:var(--ink);text-decoration:none}
+.social a:hover{background:var(--surface-2)}
+.social span{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2)}
+
+footer.site{margin-top:88px;border-top:1px solid var(--line);padding-block:32px 40px;color:var(--ink-2);font-size:12.5px}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+
+/* dialog */
+dialog{border:0;padding:0;border-radius:18px;background:var(--surface);color:var(--ink);width:min(760px,calc(100vw - 32px));max-height:calc(100dvh - 48px)}
+dialog::backdrop{background:rgba(8,7,20,.62);backdrop-filter:blur(3px)}
+.dlg{display:flex;flex-direction:column;max-height:calc(100dvh - 48px)}
+.dlg .top{position:relative;aspect-ratio:16/7;max-width:100%;flex-shrink:0;background:var(--night)}
+.dlg .top canvas{position:absolute;inset:0;width:100%;height:100%}
+.dlg .x{position:absolute;right:12px;top:12px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(13,12,30,.7);color:#fff;font-size:18px;cursor:pointer;z-index:2}
+.dlg .inner{padding:26px 28px 30px;overflow-y:auto;display:flex;flex-direction:column;gap:18px}
+.dlg .cat{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--brass);display:flex;align-items:center;gap:8px}
+.dlg h2{font-family:var(--f-display);font-weight:400;font-size:clamp(22px,3.4vw,30px);line-height:1.3}
+.dlg .en{font-family:var(--f-mono);font-size:12.5px;color:var(--ink-2);margin-top:4px;letter-spacing:.06em}
+.dlg .desc{color:var(--ink);max-width:40em}
+.dlg dl.spec dd{font-size:13.5px}
+.dlg h4{margin:0;font-size:12px;font-family:var(--f-mono);letter-spacing:.12em;color:var(--ink-2);text-transform:uppercase;font-weight:500}
+.rel{display:flex;flex-wrap:wrap;gap:8px}
+.rel button{font:inherit;font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{font-size:13.5px;font-weight:700;padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none}
+.links a:hover{opacity:.85}
+.links span{font-size:13px;padding:7px 14px;border-radius:999px;background:var(--surface-2);color:var(--ink-2)}
+.tate-wrap{overflow-x:auto;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px 20px;direction:rtl}
+.tate{writing-mode:vertical-rl;direction:ltr;font-family:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;font-size:16px;line-height:2.1;height:360px;letter-spacing:.06em;margin-inline:auto}
+.tate p{text-indent:1em}
+.tate h5{font-size:18px;margin:0 0 0 1.2em;font-weight:700;text-indent:0}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:52px 44px}
+  .mark{display:none}
+  .feature{grid-template-columns:1fr}
+  .feature .art{min-height:220px}
+  .about,.contact{grid-template-columns:1fr;gap:32px}
+  .lab{grid-template-columns:1fr}
+  .slot{min-height:0}
+}
+@media (max-width:520px){
+  body{font-size:15px}
+  .wrap{padding-inline:16px}
+  header.site .wrap{gap:10px}
+  .brand span{display:none}
+  .services{grid-template-columns:1fr}
+  .news li{grid-template-columns:1fr;gap:2px}
+  .room-title .count{margin-left:0;width:100%}
+  .planet{width:48px;height:48px}
+  .page{padding-block:40px 0}
+  .feature .body{padding:24px}
+  .dlg .inner{padding:22px 20px 26px}
+  .rule{grid-template-columns:1fr}
+  .pill{grid-row:auto;grid-column:1;justify-self:start}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .card .frame,.orbit .node circle.dot{transition:none}
+  .view.enter,.view.warp,.mark .sat{animation:none}
+  .playing .eq i{animation:none;height:12px}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700&display=swap">
+
+<div class="preview"><b>プレビュー版</b>　掲載している作品・文章・連絡先はすべてサンプルです</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="Curiosverse ホームへ">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="16" cy="16" rx="15" ry="5.5" fill="none" stroke="currentColor" stroke-width="1.4" transform="rotate(-24 16 16)"/><circle cx="26.5" cy="9" r="2.6" fill="#E0673F"/></svg>
+      <span>Curiosverse</span>
+    </a>
+    <nav class="main" aria-label="メインメニュー">
+      <ul>
+        <li><a href="#home" data-nav="home">Home</a></li>
+        <li><a href="#works" data-nav="works">Works</a></li>
+        <li><a href="#lab" data-nav="lab">Lab</a></li>
+        <li><a href="#about" data-nav="about">About</a></li>
+        <li><a href="#news" data-nav="news">News</a></li>
+        <li><a href="#guidelines" data-nav="guidelines">Guidelines</a></li>
+        <li><a href="#contact" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ═══════════ HOME ═══════════ -->
+  <div class="view" data-view="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas class="starfield" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <div>
+          <p class="eyebrow">Curiosity × Universe ／ Est. 2026</p>
+          <h1 id="hero-title">Curi<span class="o" aria-hidden="true"></span>sverse<span class="sr">（Curiosverse）</span></h1>
+          <p class="lede">気になったものは、ぜんぶ作品にする。<br>音楽、小説、映像、グラフィック、YouTube。<br>入口はちがっても、ひとつの宇宙につながっています。
+            <small>A creative universe of music, fiction, film, graphics and video.</small></p>
+          <div class="ctas">
+            <a class="btn primary" href="#works">作品の宇宙へ</a>
+            <a class="btn ghost" href="#contact">お仕事のご依頼</a>
+          </div>
+        </div>
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 300 300">
+            <ellipse cx="150" cy="150" rx="140" ry="48" fill="none" stroke="#2E2B55" stroke-width="1.5" transform="rotate(-24 150 150)"/>
+            <circle cx="150" cy="150" r="78" fill="none" stroke="#EEEDFA" stroke-width="14"/>
+            <g class="sat"><circle cx="258" cy="92" r="13" fill="#E0673F"/></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap page home-body">
+      <article class="feature" aria-labelledby="feat-title">
+        <div class="art"><canvas id="feat-art" aria-hidden="true"></canvas></div>
+        <div class="body">
+          <p class="tag" id="feat-tag">Project No.01 ／ 2026</p>
+          <h2 id="feat-title">軌道上のラジオ</h2>
+          <p id="feat-text">地上に届かなくなったラジオ番組を、ひとりで放送し続ける人工衛星の話。ひとつの物語を、楽曲・ミュージックビデオ・ジャケットの3つの形で作りました。</p>
+          <div class="chain" id="feat-chain"></div>
+        </div>
+      </article>
+
+      <section aria-labelledby="latest-title" class="latest">
+        <div class="row-head">
+          <h2 id="latest-title">最近の更新</h2>
+          <a href="#news" class="more">更新履歴をすべて見る →</a>
+        </div>
+        <ul class="news" id="latest"></ul>
+      </section>
+    </div>
+  </div>
+
+  <!-- ═══════════ WORKS：宇宙マップ ═══════════ -->
+  <div class="view" data-view="works" hidden>
+    <section class="map" aria-labelledby="map-title">
+      <canvas class="starfield" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <p class="eyebrow">Works</p>
+        <h1 id="map-title">作品の宇宙</h1>
+        <p class="hint">惑星を選ぶと、そのジャンルの部屋にワープします。</p>
+        <div class="orbit">
+          <svg viewBox="-20 -20 440 440" role="group" aria-label="ジャンルを選ぶ">
+            <circle class="ring" cx="200" cy="200" r="70"/>
+            <circle class="ring" cx="200" cy="200" r="120" stroke-dasharray="2 5"/>
+            <circle class="ring" cx="200" cy="200" r="170"/>
+            <circle class="ring faint" cx="200" cy="200" r="205" stroke-dasharray="1 7"/>
+            <g id="comets"></g>
+            <a href="#works-all" class="core" aria-label="すべての作品を見る">
+              <circle cx="200" cy="200" r="42" fill="transparent"/>
+              <circle cx="200" cy="200" r="30" fill="none" stroke="#EEEDFA" stroke-width="5"/>
+              <circle cx="200" cy="200" r="6" fill="#EEEDFA"/>
+              <text x="200" y="252" text-anchor="middle" class="en">ALL</text>
+            </a>
+            <g id="nodes"></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════ WORKS：ジャンルの部屋 ═══════════ -->
+  <div class="view" data-view="room" hidden>
+    <section class="room-head" aria-labelledby="room-title">
+      <canvas class="starfield" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <a class="back" href="#works">← 作品の宇宙へ戻る</a>
+        <div class="room-title">
+          <span class="planet" id="room-planet" aria-hidden="true"></span>
+          <div>
+            <p class="eyebrow" id="room-en">MUSIC</p>
+            <h1 id="room-title">音楽</h1>
+          </div>
+          <span class="count mono" id="room-count">3 works</span>
+        </div>
+        <nav class="room-nav" id="room-nav" aria-label="ほかのジャンルへ"></nav>
+      </div>
+    </section>
+    <div class="wrap page">
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════ LAB ✏️ 文章はここで直接書き換えOK ═══════════ -->
+  <div class="view" data-view="lab" hidden>
+    <div class="wrap page">
+      <div class="sec-head">
+        <p class="crumb">Curiosverse ／ Lab</p>
+        <h1>Lab 未観測領域</h1>
+        <p>開発をはじめ、ジャンルの外側で進めるサブプロジェクトの置き場です。観測できしだい、ここに公開します。</p>
+      </div>
+      <div class="lab">
+        <div class="slot"><span class="cat">CV-LB-001</span><h2>開発プロジェクト</h2><p>Webやアプリなど、作品世界を体験できるものを準備中です。</p></div>
+        <div class="slot"><span class="cat">CV-LB-002</span><h2>コラボレーション</h2><p>ほかのクリエイターとの共同制作。お誘いはContactからどうぞ。</p></div>
+        <div class="slot"><span class="cat">CV-LB-???</span><h2>まだ名前のないもの</h2><p>次に何を作るかは、次に何が気になるか次第です。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ ABOUT ✏️ 紹介文はここで直接書き換えOK（名前などは上の編集エリアで） ═══════════ -->
+  <div class="view" data-view="about" hidden>
+    <div class="wrap page">
+      <div class="sec-head">
+        <p class="crumb">Curiosverse ／ About</p>
+        <h1>About Curiosverseについて</h1>
+      </div>
+      <div class="about">
+        <div>
+          <p class="statement">Curiosverseは、<em>Curiosity（好奇心）</em>と<em>Universe（宇宙）</em>を合わせた名前です。ひとつの「気になる」から、曲ができることもあれば、小説や映像になることもあります。</p>
+          <p>ジャンルは、作品への入口のちがいだと考えています。どこから入っても同じ宇宙にたどり着けるように、作品どうしをつなげながら制作しています。</p>
+        </div>
+        <dl class="spec">
+          <dt>Creator</dt><dd id="s-creator">（クリエイター名）</dd>
+          <dt>Since</dt><dd id="s-since">2026年</dd>
+          <dt>Genre</dt><dd>音楽 ／ 小説 ／ 映像 ／ グラフィックデザイン ／ YouTube</dd>
+          <dt>Tools</dt><dd id="s-tools">DAW、動画編集ソフト、デザインツール（使用ソフト名が入ります）</dd>
+          <dt>Based in</dt><dd id="s-based">日本</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ NEWS ═══════════ -->
+  <div class="view" data-view="news" hidden>
+    <div class="wrap page">
+      <div class="sec-head">
+        <p class="crumb">Curiosverse ／ News</p>
+        <h1>News 更新履歴</h1>
+      </div>
+      <ul class="news" id="newslist"></ul>
+    </div>
+  </div>
+
+  <!-- ═══════════ GUIDELINES ✏️ ルールはここで直接書き換えOK
+       右の印は class="pill ok"（OK）/ "pill warn"（要相談）/ "pill ng"（NG） ═══════════ -->
+  <div class="view" data-view="guidelines" hidden>
+    <div class="wrap page">
+      <div class="sec-head">
+        <p class="crumb">Curiosverse ／ Guidelines</p>
+        <h1>Guidelines 利用ガイドライン</h1>
+        <p>作品を楽しんでいただくためのルールです。ここにないケースや判断に迷うときは、お気軽にお問い合わせください。</p>
+      </div>
+      <div class="rules">
+        <div class="rule"><h2>動画・配信のBGMとして楽曲を使う</h2><p>収益化している動画・配信でもご利用いただけます。概要欄などにクレジットの記載をお願いします。</p><span class="pill ok">OK</span></div>
+        <div class="rule"><h2>ファンアート・二次創作（非営利）</h2><p>イラスト、歌ってみた、演奏してみた、感想動画など。作品名とCuriosverseの名前を添えてもらえるとうれしいです。</p><span class="pill ok">OK</span></div>
+        <div class="rule"><h2>二次創作の販売・商用での利用</h2><p>同人誌・グッズの頒布、広告や商品への使用などは、事前にご相談ください。</p><span class="pill warn">要相談</span></div>
+        <div class="rule"><h2>無断転載・自作発言</h2><p>作品の全部または一部を、そのまま再アップロードする行為や、自分の作品として公開する行為は禁止です。</p><span class="pill ng">NG</span></div>
+        <div class="rule"><h2>生成AIの学習データとしての利用</h2><p>音源・文章・画像・映像のいずれも、AIの学習や追加学習への利用はお断りしています。</p><span class="pill ng">NG</span></div>
+      </div>
+      <div class="credit">
+        <p class="label">クレジット表記の例</p>
+        <div class="copyrow">
+          <code id="credit-text">Music: 軌道上のラジオ / Curiosverse</code>
+          <button class="copybtn" type="button" data-copy="credit-text">コピー</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CONTACT ✏️ 依頼内容の文章はここで直接書き換えOK（メール・SNSは上の編集エリアで） ═══════════ -->
+  <div class="view" data-view="contact" hidden>
+    <div class="wrap page">
+      <div class="sec-head">
+        <p class="crumb">Curiosverse ／ Contact</p>
+        <h1>Contact お問い合わせ</h1>
+        <p>お仕事のご依頼、コラボレーションのお誘い、ガイドラインについてのご相談を受け付けています。</p>
+      </div>
+      <div class="contact">
+        <div class="services">
+          <div class="svc"><span class="cat"><i class="dot" style="background:var(--g-music)"></i>楽曲制作</span><p>作詞・作曲・編曲、BGM、ジングル</p></div>
+          <div class="svc"><span class="cat"><i class="dot" style="background:var(--g-novel)"></i>執筆</span><p>短編小説、シナリオ、作品のコピー</p></div>
+          <div class="svc"><span class="cat"><i class="dot" style="background:var(--g-video)"></i>映像制作</span><p>MV、PV、動画編集、モーショングラフィックス</p></div>
+          <div class="svc"><span class="cat"><i class="dot" style="background:var(--g-graphic)"></i>グラフィック</span><p>ジャケット、ロゴ、ポスター、サムネイル</p></div>
+        </div>
+        <div class="mailbox">
+          <p class="crumb">Mail</p>
+          <div class="copyrow">
+            <code id="mail-text" class="addr">hello@curiosverse.example</code>
+            <button class="copybtn" type="button" data-copy="mail-text">コピー</button>
+          </div>
+          <ul>
+            <li>通常3営業日以内にお返事します</li>
+            <li>ご依頼の際は、内容・納期・ご予算の目安をお書き添えください</li>
+          </ul>
+          <div class="social" id="s-social" aria-label="SNS"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Curiosverse. All rights reserved.</span>
+    <span class="mono" id="s-updated">Last updated 2026.09.28</span>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="d-title">
+  <div class="dlg">
+    <div class="top"><canvas id="d-art" aria-hidden="true"></canvas><button class="x" type="button" id="d-close" aria-label="閉じる">×</button></div>
+    <div class="inner" id="d-inner"></div>
+  </div>
+</dialog>
+
+
+<script>
+(() => {
+const G = {
+  music:{ja:'音楽',en:'Music',code:'MU',c:'#E0673F'},
+  novel:{ja:'小説',en:'Novel',code:'NV',c:'#2E9A7A'},
+  video:{ja:'映像',en:'Video',code:'MV',c:'#D6A21E'},
+  graphic:{ja:'グラフィック',en:'Graphic',code:'GR',c:'#D0457F'},
+  youtube:{ja:'YouTube',en:'YouTube',code:'YT',c:'#5B50F0'}
+};
+const CV = window.CV;
+if(!CV||!Array.isArray(CV.works)){
+  const d=document.createElement('div');
+  d.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99;background:#C23A3A;color:#fff;padding:14px 16px;font-weight:700;text-align:center';
+  d.textContent='編集エリアに書き間違いがあるみたいです。カンマ（,）や " の閉じ忘れがないか確認してください。';
+  document.body.prepend(d);return;
+}
+const W = CV.works, NEWS = CV.news||[], SITE = CV.site||{}, FEAT = CV.feature||{};
+W.forEach(w=>{w.rel=w.rel||[];w.spec=w.spec||[];w.links=w.links||[];if(!G[w.g])w.g='graphic'});
+const byId = Object.fromEntries(W.map(w=>[w.id,w]));
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let ac=null,playing=null,timer=null;
+
+/* ---------- seeded art ---------- */
+function rng(seed){let h=2166136261;for(const ch of seed)h=Math.imul(h^ch.charCodeAt(0),16777619);return()=>{h+=0x6D2B79F5;let t=h;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}}
+function hexA(hex,a){const n=parseInt(hex.slice(1),16);return`rgba(${n>>16},${n>>8&255},${n&255},${a})`}
+function paint(cv,w,opt={}){
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  const W_=cv.clientWidth||400,H_=cv.clientHeight||300;
+  cv.width=W_*dpr;cv.height=H_*dpr;
+  const x=cv.getContext('2d');x.scale(dpr,dpr);
+  const r=rng(w.id+(opt.salt||'')),col=G[w.g].c;
+  x.fillStyle='#0D0C1E';x.fillRect(0,0,W_,H_);
+  for(let i=0;i<90;i++){x.fillStyle=`rgba(238,237,250,${.15+r()*.6})`;const s=r()*1.4+.3;x.fillRect(r()*W_,r()*H_,s,s)}
+  const cx=W_*(.3+r()*.4),cy=H_*(.35+r()*.3),R=Math.min(W_,H_);
+  if(w.g==='music'){
+    for(let i=7;i>0;i--){x.beginPath();x.arc(cx,cy,R*.07*i,0,Math.PI*2);x.strokeStyle=hexA(col,.12+.1*(7-i)/7);x.lineWidth=1.2;x.stroke()}
+    const g=x.createRadialGradient(cx,cy,0,cx,cy,R*.2);g.addColorStop(0,col);g.addColorStop(1,hexA(col,0));
+    x.fillStyle=g;x.beginPath();x.arc(cx,cy,R*.2,0,Math.PI*2);x.fill();
+    x.fillStyle='#EEEDFA';x.beginPath();x.arc(cx,cy,R*.045,0,Math.PI*2);x.fill();
+  }else if(w.g==='novel'){
+    const bw=Math.min(H_*.62,W_*.4),bh=bw*1.42,bx=W_/2-bw/2,by=H_/2-bh/2;
+    x.fillStyle='rgba(0,0,0,.35)';x.fillRect(bx+6,by+8,bw,bh);
+    x.fillStyle=col;x.fillRect(bx,by,bw,bh);
+    x.fillStyle='rgba(255,255,255,.14)';x.fillRect(bx,by,bw*.07,bh);
+    x.strokeStyle='rgba(255,255,255,.5)';x.lineWidth=1;x.strokeRect(bx+bw*.14,by+bh*.08,bw*.76,bh*.84);
+    x.fillStyle='#FFFFFF';x.font=`700 ${Math.max(11,bw*.1)}px "Zen Old Mincho","Hiragino Mincho ProN",serif`;x.textAlign='center';
+    const t=w.title,fs=Math.max(11,bw*.1);let ty=by+bh*.16;
+    for(const ch of t){if(ty>by+bh*.84)break;x.fillText(ch,bx+bw*.56,ty+fs*.8);ty+=fs*1.1}
+    x.fillStyle='rgba(255,255,255,.85)';x.beginPath();x.arc(bx+bw*.3,by+bh*.22,bw*.05,0,Math.PI*2);x.fill();
+  }else if(w.g==='video'){
+    const hz=H_*(.6+r()*.12);
+    const g=x.createLinearGradient(0,hz-H_*.4,0,hz);g.addColorStop(0,hexA(col,0));g.addColorStop(1,hexA(col,.55));
+    x.fillStyle=g;x.fillRect(0,0,W_,hz);
+    x.fillStyle='#07061A';x.beginPath();x.moveTo(0,hz);
+    for(let i=0;i<=12;i++)x.lineTo(W_*i/12,hz-r()*H_*.12);x.lineTo(W_,H_);x.lineTo(0,H_);x.fill();
+    x.fillStyle='#EEEDFA';x.beginPath();x.arc(W_*(.2+r()*.6),H_*(.2+r()*.15),R*.06,0,Math.PI*2);x.fill();
+    x.fillStyle='rgba(0,0,0,.6)';x.fillRect(0,0,W_,H_*.07);x.fillRect(0,H_*.93,W_,H_*.07);
+  }else if(w.g==='graphic'){
+    x.globalCompositeOperation='screen';
+    const cs=[col,'#5B50F0','#D6A21E'];
+    for(let i=0;i<3;i++){x.fillStyle=hexA(cs[i],.8);const s=R*(.22+r()*.14);
+      if(i===1){x.fillRect(W_*(.25+r()*.4)-s/2,H_*(.3+r()*.35)-s/2,s,s)}
+      else{x.beginPath();x.arc(W_*(.25+r()*.5),H_*(.3+r()*.4),s*.6,0,Math.PI*2);x.fill()}}
+    x.globalCompositeOperation='source-over';
+    x.strokeStyle='rgba(238,237,250,.35)';x.lineWidth=1;
+    for(let i=1;i<6;i++){x.beginPath();x.moveTo(0,H_*i/6);x.lineTo(W_,H_*i/6);x.stroke()}
+  }else{
+    const g=x.createLinearGradient(0,0,W_,H_);g.addColorStop(0,hexA(col,.85));g.addColorStop(1,'rgba(13,12,30,.2)');
+    x.fillStyle=g;x.fillRect(0,0,W_,H_);
+    x.fillStyle='#FFFFFF';x.textAlign='left';
+    const fs=Math.max(14,W_*.075);x.font=`400 ${fs}px "Dela Gothic One",sans-serif`;
+    const words=(opt.big||w.title).split(' ');let yy=H_*.3;
+    for(const wd of words.slice(0,3)){x.fillText(wd.slice(0,10),W_*.07,yy);yy+=fs*1.25}
+    x.fillStyle=col;x.beginPath();x.arc(W_*.85,H_*.72,R*.14,0,Math.PI*2);x.fill();
+    x.fillStyle='#FFFFFF';x.beginPath();x.moveTo(W_*.83,H_*.66);x.lineTo(W_*.83,H_*.78);x.lineTo(W_*.89,H_*.72);x.fill();
+  }
+}
+
+/* ---------- starfields ---------- */
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=id=>document.getElementById(id);
+const fields=[...document.querySelectorAll('canvas.starfield')].map((cv,i)=>({cv,data:[],w:0,seed:'stars'+i}));
+function drawField(f,t){
+  const cv=f.cv;if(!cv.offsetParent)return;
+  const dpr=Math.min(devicePixelRatio||1,2),w=cv.clientWidth,h=cv.clientHeight;
+  if(f.w!==w||f.h!==h){f.w=w;f.h=h;cv.width=w*dpr;cv.height=h*dpr;const r=rng(f.seed);f.data=Array.from({length:Math.round(w*h/2400)},()=>({x:r()*w,y:r()*h,s:r()*1.5+.3,p:r()*6.28,a:.2+r()*.7}))}
+  const x=cv.getContext('2d');x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,w,h);
+  for(const s of f.data){x.fillStyle=`rgba(238,237,250,${s.a*(reduce?1:.65+.35*Math.sin(t/900+s.p))})`;x.fillRect(s.x,s.y,s.s,s.s)}
+}
+const drawAll=(t=0)=>fields.forEach(f=>drawField(f,t));
+if(!reduce){const loop=t=>{drawAll(t);requestAnimationFrame(loop)};requestAnimationFrame(loop)}
+addEventListener('resize',()=>drawAll());
+
+/* ---------- art: 画像があれば画像、なければ自動生成 ---------- */
+function setArt(cv,w,opt={},image){
+  const box=cv.parentElement;let img=box.querySelector('img.cv-img');
+  if(image){
+    cv.hidden=true;
+    if(!img){img=document.createElement('img');img.className='cv-img';img.alt='';box.insertBefore(img,cv)}
+    img.src=image;img.onerror=()=>{img.remove();cv.hidden=false;paint(cv,w,opt)};
+  }else{if(img)img.remove();cv.hidden=false;paint(cv,w,opt)}
+}
+const bigOf=w=>w.g==='youtube'?w.en:null;
+
+/* ---------- site info ---------- */
+if(SITE.preview===false)document.querySelector('.preview').hidden=true;
+[['s-creator','creator'],['s-since','since'],['s-tools','tools'],['s-based','basedIn']].forEach(([id,k])=>{if(SITE[k]!=null)$(id).textContent=SITE[k]});
+if(SITE.email)$('mail-text').textContent=SITE.email;
+if(SITE.updated)$('s-updated').textContent='Last updated '+SITE.updated;
+$('s-social').innerHTML=(SITE.socials||[]).map(s=>s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a>`:`<span>${esc(s.label)}（準備中）</span>`).join('');
+
+/* ---------- home: feature ---------- */
+const featIds=(FEAT.works||[]).filter(id=>byId[id]);
+if(!featIds.length){document.querySelector('.feature').hidden=true}
+else{
+  if(FEAT.tag)$('feat-tag').textContent=FEAT.tag;
+  if(FEAT.title)$('feat-title').textContent=FEAT.title;
+  if(FEAT.text)$('feat-text').textContent=FEAT.text;
+  const chain=$('feat-chain');
+  featIds.forEach((id,i)=>{
+    if(i){const s=document.createElement('span');s.className='arrow';s.textContent='＋';s.setAttribute('aria-hidden','true');chain.appendChild(s)}
+    const w=byId[id],b=document.createElement('button');b.type='button';
+    b.innerHTML=`<i class="dot" style="background:${G[w.g].c}"></i>${G[w.g].ja}<span class="mono" style="font-size:11px;color:var(--ink-2)">${esc(id)}</span>`;
+    b.addEventListener('click',()=>openWork(id));chain.appendChild(b);
+  });
+}
+const paintFeat=()=>{if(featIds.length&&$('feat-art').parentElement.offsetParent)setArt($('feat-art'),byId[featIds[0]],{salt:'feat'},FEAT.image)};
+
+/* ---------- news ---------- */
+const newsRow=([d,k,t,g])=>`<li><time datetime="${esc(String(d).replace(/\./g,'-'))}">${esc(d)}</time><span class="k"><i class="dot" style="background:${(G[g]||G.youtube).c}"></i>${esc(k)}</span><span>${esc(t)}</span></li>`;
+$('newslist').innerHTML=NEWS.map(newsRow).join('');
+$('latest').innerHTML=NEWS.slice(0,3).map(newsRow).join('');
+
+/* ---------- works: 宇宙マップ ---------- */
+const NS='http://www.w3.org/2000/svg',nodes=$('nodes');
+const layout=[['music',70,-60],['novel',120,20],['video',170,-120],['graphic',170,110],['youtube',120,200]];
+layout.forEach(([g,r,deg])=>{
+  const n=W.filter(w=>w.g===g).length;
+  const a=deg*Math.PI/180,cx=200+r*Math.cos(a),cy=200+r*Math.sin(a),left=cx<200,tx=cx+(left?-1:1)*(18+n*1.5);
+  const el=document.createElementNS(NS,'a');el.setAttribute('href','#works-'+g);el.setAttribute('class','node');
+  el.setAttribute('aria-label',`${G[g].ja}の部屋へ（${n}作品）`);
+  el.innerHTML=`<circle class="hit" cx="${cx}" cy="${cy}" r="30"/><circle class="halo" cx="${cx}" cy="${cy}" r="${10+n*2.2}" fill="${G[g].c}"/><circle class="dot" cx="${cx}" cy="${cy}" r="${6+n*1.6}" fill="${G[g].c}"/>
+    <text x="${tx}" y="${cy-2}" text-anchor="${left?'end':'start'}">${G[g].ja}</text>
+    <text class="en" x="${tx}" y="${cy+13}" text-anchor="${left?'end':'start'}">${G[g].en.toUpperCase()} ・ ${n}</text>`;
+  nodes.appendChild(el);
+});
+{ // Lab：まだ見えない星
+  const a=45*Math.PI/180,cx=200+205*Math.cos(a),cy=200+205*Math.sin(a);
+  const el=document.createElementNS(NS,'a');el.setAttribute('href','#lab');el.setAttribute('class','node lab');el.setAttribute('aria-label','Labへ（準備中）');
+  el.innerHTML=`<circle class="hit" cx="${cx}" cy="${cy}" r="26"/><circle class="dot" cx="${cx}" cy="${cy}" r="7" fill="none" stroke="#A9A6CC" stroke-width="1.5" stroke-dasharray="2 3"/>
+    <text x="${cx-16}" y="${cy-2}" text-anchor="end">Lab</text><text class="en" x="${cx-16}" y="${cy+13}" text-anchor="end">UNOBSERVED</text>`;
+  nodes.appendChild(el);
+}
+if(!reduce){
+  const comets=$('comets');
+  [[70,9],[120,16],[170,24]].forEach(([r,dur],i)=>{
+    const c=document.createElementNS(NS,'circle');c.setAttribute('r','2.2');c.setAttribute('fill','#EEEDFA');c.setAttribute('opacity','.7');
+    c.innerHTML=`<animateMotion dur="${dur}s" repeatCount="indefinite" begin="-${i*3}s" path="M ${200+r} 200 A ${r} ${r} 0 1 1 ${200-r} 200 A ${r} ${r} 0 1 1 ${200+r} 200"/>`;
+    comets.appendChild(c);
+  });
+}
+
+/* ---------- works: ジャンルの部屋 ---------- */
+const grid=$('grid');
+$('room-nav').innerHTML=[['all','すべて'],...Object.keys(G).map(g=>[g,G[g].ja])].map(([k,l])=>
+  `<a href="#works-${k}" data-room="${k}">${k!=='all'?`<i class="dot" style="background:${G[k].c}"></i>`:''}${l}</a>`).join('');
+function openRoom(g){
+  const all=g==='all',list=W.filter(w=>all||w.g===g);
+  $('room-title').textContent=all?'すべての作品':G[g].ja;
+  $('room-en').textContent=all?'ALL WORKS':G[g].en.toUpperCase();
+  $('room-count').textContent=`${list.length} works`;
+  $('room-planet').style.setProperty('--gc',all?'#EEEDFA':G[g].c);
+  $('room-nav').querySelectorAll('a').forEach(a=>a.toggleAttribute('aria-current',a.dataset.room===g));
+  stopAudio();grid.innerHTML='';
+  list.forEach(w=>{
+    const card=document.createElement('div');card.className='card';card.setAttribute('role','button');card.tabIndex=0;card.dataset.id=w.id;
+    card.setAttribute('aria-label',`${w.title}（${G[w.g].ja}）の詳細を開く`);
+    const canPlay=w.g==='music'&&Array.isArray(w.motif)&&w.motif.length;
+    card.innerHTML=`<div class="frame"><canvas></canvas>${w.badge?`<span class="badge">${esc(w.badge)}</span>`:''}
+      ${canPlay?`<button class="play" type="button" aria-label="${esc(w.title)}の試聴サンプルを再生"><svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg></button><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>`:''}</div>
+      <div class="meta"><span class="cat"><i class="dot" style="background:${G[w.g].c}"></i>${esc(w.id)}</span><h3>${esc(w.title)}</h3><span class="sub">${esc(w.sub)}</span></div>`;
+    card.addEventListener('click',e=>{if(e.target.closest('.play'))return;openWork(w.id)});
+    card.addEventListener('keydown',e=>{if(e.target===card&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openWork(w.id)}});
+    const pb=card.querySelector('.play');if(pb)pb.addEventListener('click',e=>{e.stopPropagation();toggleAudio(w,card)});
+    grid.appendChild(card);
+  });
+  if(!list.length)grid.innerHTML='<p class="empty">この惑星にはまだ作品がありません。</p>';
+}
+const paintGrid=()=>grid.querySelectorAll('.card').forEach(c=>{const w=byId[c.dataset.id];setArt(c.querySelector('canvas'),w,{big:bigOf(w)},w.image)});
+addEventListener('resize',()=>{clearTimeout(window.__rz);window.__rz=setTimeout(()=>{
+  grid.querySelectorAll('.card').forEach(c=>{const w=byId[c.dataset.id];if(!w.image&&c.offsetParent)paint(c.querySelector('canvas'),w,{big:bigOf(w)})});
+  if(!FEAT.image)paintFeat();
+},200)});
+
+/* ---------- ページ切り替え ---------- */
+const views=[...document.querySelectorAll('.view')];
+let lastView=null;
+function route(){
+  const h=decodeURIComponent(location.hash.slice(1))||'home';
+  let v=h,g=null;
+  if(h.startsWith('works-')){g=h.slice(6);if(g==='all'||G[g])v='room';else v='works'}
+  if(!views.some(x=>x.dataset.view===v))v='home';
+  stopAudio();if(dlg.open)dlg.close();
+  views.forEach(x=>{const on=x.dataset.view===v;x.hidden=!on;x.classList.remove('enter','warp')});
+  const cur=views.find(x=>x.dataset.view===v);
+  if(v==='room')openRoom(g);
+  void cur.offsetWidth;cur.classList.add(v==='room'&&lastView==='works'?'warp':'enter');
+  const navKey=v==='room'?'works':v;
+  document.querySelectorAll('[data-nav]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===navKey));
+  document.querySelectorAll('[data-nav][aria-current]').forEach(a=>a.setAttribute('aria-current','page'));
+  const act=document.querySelector('[data-nav][aria-current]');if(act)act.scrollIntoView({block:'nearest',inline:'nearest'});
+  document.title=v==='home'?'Curiosverse':`${({works:'Works',room:'Works',lab:'Lab',about:'About',news:'News',guidelines:'Guidelines',contact:'Contact'})[v]} ｜ Curiosverse`;
+  window.scrollTo(0,0);lastView=v;
+  requestAnimationFrame(()=>{drawAll();if(v==='home')paintFeat();if(v==='room')paintGrid()});
+}
+addEventListener('hashchange',route);
+
+/* ---------- audio (synth sample) ---------- */
+function stopAudio(){if(timer)clearInterval(timer);timer=null;if(playing){playing.card.classList.remove('playing');const b=playing.card.querySelector('.play');b.innerHTML='<svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg>';b.setAttribute('aria-label',`${playing.w.title}の試聴サンプルを再生`)}playing=null}
+function toggleAudio(w,card){
+  const same=playing&&playing.w===w;stopAudio();if(same)return;
+  try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();ac.resume()}catch(e){return}
+  playing={w,card};card.classList.add('playing');
+  const b=card.querySelector('.play');b.innerHTML='<svg viewBox="0 0 16 16"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg>';b.setAttribute('aria-label','停止');
+  const base=[261.63,293.66,246.94][W.indexOf(w)%3],step=.28;let i=0;
+  const tick=()=>{const t=ac.currentTime;const n=w.motif[i%w.motif.length];
+    [[n,0.13,'triangle'],[n-12,0.05,'sine']].forEach(([s,v,type])=>{const o=ac.createOscillator(),g=ac.createGain();o.type=type;o.frequency.value=base*Math.pow(2,s/12);
+      g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+step*1.8);o.connect(g).connect(ac.destination);o.start(t);o.stop(t+step*2)});
+    i++;if(i>=w.motif.length*3)stopAudio()};
+  tick();timer=setInterval(tick,step*1000);
+}
+
+/* ---------- dialog ---------- */
+const dlg=$('dlg'),inner=$('d-inner');
+function openWork(id){
+  const w=byId[id];if(!w)return;stopAudio();
+  const rel=w.rel.filter(r=>byId[r]);
+  const links=w.links.filter(l=>l&&l.url);
+  const fallbackLabel=w.g==='music'?'配信ページ':w.g==='novel'?'本文を読む':w.g==='graphic'?'高解像度で見る':'動画を見る';
+  inner.innerHTML=`<div><p class="cat"><i class="dot" style="background:${G[w.g].c}"></i>${esc(w.id)} ・ ${G[w.g].ja}</p>
+      <h2 id="d-title">${esc(w.title)}</h2>${w.en?`<p class="en">${esc(w.en)}</p>`:''}</div>
+    ${w.desc?`<p class="desc">${esc(w.desc)}</p>`:''}
+    ${links.length?`<div class="links">${links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label||'リンク')} ↗</a>`).join('')}</div>`:''}
+    ${Array.isArray(w.excerpt)&&w.excerpt.length?`<div><h4>試し読み</h4><div class="tate-wrap" tabindex="0" aria-label="縦書きの試し読み（横にスクロールできます）" style="margin-top:10px"><div class="tate"><h5>${esc(w.excerpt[0])}</h5>${w.excerpt.slice(1).map(p=>`<p>${esc(p)}</p>`).join('')}</div></div></div>`:''}
+    ${w.spec.length?`<dl class="spec">${w.spec.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>`:''}
+    ${rel.length?`<div style="display:grid;gap:10px"><h4>つながっている作品</h4><div class="rel">${rel.map(r=>{const o=byId[r];return`<button type="button" data-open="${esc(r)}"><i class="dot" style="background:${G[o.g].c}"></i>${esc(o.title)}<span class="mono" style="font-size:11px;color:var(--ink-2)">${G[o.g].ja}</span></button>`}).join('')}</div></div>`:''}
+    ${links.length?'':`<div style="display:grid;gap:10px"><h4>リンク</h4><div class="links"><span>${fallbackLabel}（準備中）</span></div></div>`}`;
+  inner.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openWork(b.dataset.open)));
+  inner.scrollTop=0;
+  if(!dlg.open)dlg.showModal();
+  requestAnimationFrame(()=>setArt($('d-art'),w,{salt:'d',big:bigOf(w)},w.image));
+}
+$('d-close').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+
+/* ---------- copy ---------- */
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+  const el=document.getElementById(b.dataset.copy),txt=el.textContent;
+  const done=()=>{b.textContent='コピーしました';setTimeout(()=>b.textContent='コピー',1600)};
+  const fallback=()=>{const s=getSelection(),r=document.createRange();r.selectNodeContents(el);s.removeAllRanges();s.addRange(r);b.textContent='選択しました';setTimeout(()=>b.textContent='コピー',1600)};
+  try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+}));
+route();
+})();
+</script>
